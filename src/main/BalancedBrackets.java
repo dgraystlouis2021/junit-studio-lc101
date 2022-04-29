@@ -23,11 +23,19 @@ public class BalancedBrackets {
      */
     public static boolean hasBalancedBrackets(String str) {
         int brackets = 0;
+        char bracket=' ';
         for (char ch : str.toCharArray()) {
-            if (ch == '[') {
-                brackets++;
+            if (ch == '[' && bracket==' ') {
+                    brackets++;
+                    bracket='[';
             } else if (ch == ']') {
-                brackets--;
+                if(bracket=='[') {
+                    brackets--;
+                    bracket=' ';
+                }else{
+                    brackets--;
+                    bracket=']';
+                }
             }
         }
         return brackets == 0;

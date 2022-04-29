@@ -19,9 +19,22 @@ public class BalancedBracketsTest {
     }
 
     @Test
-    public void onlyBracketsReturnsFalse() {
+    public void oneBackwardBracketReturnsFalse() {
         assertFalse(BalancedBrackets.hasBalancedBrackets("]"));
     }
 
+    @Test
+    public void backwardBracketsReturnsFalse() {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("]["));
+    }
 
+    @Test
+    public void oneForwardBracketReturnsFalse() {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("["));
+    }
+
+    @Test
+    public void noBracketsReturnsTrue() {
+        assertTrue(BalancedBrackets.hasBalancedBrackets(""));
+    }
 }
